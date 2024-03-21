@@ -3,9 +3,11 @@ import { TableHeader, TableRow } from '../../../interfaces';
 interface Props {
   TableHeaders: TableHeader[];
   TableRows: TableRow[];
+  handleNameClick?: (row: TableRow) => void;
 }
 
-export const CheckBoxTable = ( { TableHeaders, TableRows }: Props ) => {
+export const CheckBoxTable = ({ TableHeaders, TableRows, handleNameClick }: Props) => {
+
   return (
     <table className="mt-8 w-full">
       <thead>
@@ -14,28 +16,31 @@ export const CheckBoxTable = ( { TableHeaders, TableRows }: Props ) => {
             <input type="checkbox" />
           </th>
           {
-            TableHeaders.map( ( { name, width, aling }, index ) => (
-              <th key={ index } className={ `font-semibold ${ aling ? aling : 'text-start' } ${ width ? width : '' }` }>{ name }</th>
-            ) )
+            TableHeaders.map(({ name, width, aling }, index) => (
+              <th key={index} className={`font-semibold ${aling ? aling : 'text-start'} ${width ? width : ''}`}>{name}</th>
+            ))
           }
         </tr>
       </thead>
       <tbody>
         {
-          TableRows.map( ( row, index ) => (
-            <tr key={ index } className="h-12 border-b border-slate-200 hover:bg-slate-400 hover:bg-opacity-10">
-              <td className="text-center">
+          TableRows.map((row, index) => (
+            <tr key={index} className="h-12 border-b border-slate-200 hover:bg-slate-400 hover:bg-opacity-10">
+              <td
+                className="text-center">
                 <input type="checkbox" />
               </td>
-              <td className="hover:cursor-pointer">
-                <i className={ `mr-4 text-vt-blue text-xl ${ row.icon }` }></i>
-                { row.name }
+              <td
+                onClick={handleNameClick ? () => handleNameClick(row) : () => { }}
+                className="hover:cursor-pointer">
+                <i className={`mr-4 text-vt-blue text-xl ${row.icon}`}></i>
+                {row.name}
               </td>
-              <td className="text-center">{ row.videos }</td>
-              <td className="text-center">{ row.size }</td>
-              <td className="text-center">{ row.lastModified }</td>
+              <td className="text-center">{row.videos}</td>
+              <td className="text-center">{row.size}</td>
+              <td className="text-center">{row.lastModified}</td>
             </tr>
-          ) )
+          ))
         }
       </tbody>
     </table>

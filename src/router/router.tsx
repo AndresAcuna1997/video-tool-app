@@ -2,23 +2,23 @@ import { Navigate, createBrowserRouter } from 'react-router-dom';
 import { VideosLayout } from '../layout/VideosLayout';
 import { VideoList, VideosFolder } from '../pages';
 
-export const router = createBrowserRouter( [
+export const router = createBrowserRouter([
   {
     path: '',
     element: <VideosLayout />,
     children: [
       {
-        path: '/',
+        path: 'videos',
         element: <VideoList />
       },
       {
-        path: '/:id',
+        path: 'videos/:id',
         element: <VideosFolder />
       },
       {
         path: '*',
-        element: <Navigate to="/" />
+        element: <Navigate to="/videos" />
       },
     ]
   }
-] );
+]);

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ActionBtnVideoList, CheckBoxTable, TabVideoList } from '../components';
 import { TableHeader, TableRow } from '../interfaces';
+import { useNavigate } from 'react-router-dom';
 
 const dataRows: TableRow[] = [
   {
@@ -84,22 +85,26 @@ const tableHeaders: TableHeader[] = [
 
 export const VideoList = () => {
 
-  const [ selectedTab, setSelectedTab ] = useState( 'Biblioteca' );
+  const [selectedTab, setSelectedTab] = useState('Biblioteca');
+  const navigate = useNavigate();
 
+  const handleNameClick = (row: TableRow) => {
+    navigate(`/videos/${row.name}`);
+  }
 
   return (
     <div className="px-10 py-8 h-full">
 
-      {/* Buttons and Search Bar */ }
+      {/* Buttons and Search Bar */}
       <div className="flex justify-between">
         <div className="flex gap-4">
-          <TabVideoList name={ 'Biblioteca' } icon={ 'fa-solid fa-book' } isSelected={ selectedTab === 'Biblioteca' } changeTab={ setSelectedTab } />
-          <TabVideoList name={ 'Papelera' } icon={ 'fa-solid fa-trash-can' } isSelected={ selectedTab === 'Papelera' } changeTab={ setSelectedTab } />
+          <TabVideoList name={'Biblioteca'} icon={'fa-solid fa-book'} isSelected={selectedTab === 'Biblioteca'} changeTab={setSelectedTab} />
+          <TabVideoList name={'Papelera'} icon={'fa-solid fa-trash-can'} isSelected={selectedTab === 'Papelera'} changeTab={setSelectedTab} />
         </div>
 
         <div className="flex gap-4">
-          <ActionBtnVideoList name={ 'Nueva Carpeta' } icon={ 'fa-regular fa-folder' } />
-          <ActionBtnVideoList name={ 'Nuevo Video' } icon={ 'fa-regular fa-circle-play' } variant={ 'dark' } />
+          <ActionBtnVideoList name={'Nueva Carpeta'} icon={'fa-regular fa-folder'} />
+          <ActionBtnVideoList name={'Nuevo Video'} icon={'fa-regular fa-circle-play'} variant={'dark'} />
         </div>
       </div>
 
@@ -112,8 +117,8 @@ export const VideoList = () => {
         </div>
       </form>
 
-      {/* Videos List */ }
-      <CheckBoxTable TableHeaders={ tableHeaders } TableRows={ dataRows } />
+      {/* Videos List */}
+      <CheckBoxTable TableHeaders={tableHeaders} TableRows={dataRows} handleNameClick={handleNameClick} />
 
     </div>
   );

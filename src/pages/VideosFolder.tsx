@@ -1,3 +1,4 @@
+import { useNavigate, useParams } from 'react-router-dom';
 import { CheckBoxTable } from '../components';
 import { TableHeader, TableRow } from '../interfaces';
 
@@ -76,24 +77,36 @@ const dataRows: TableRow[] = [
 
 const tableHeaders: TableHeader[] = [
   { name: 'Nombre', width: 'w-3/6', },
-  { name: 'Videos', width: 'w-[10%]', aling: 'text-center' },
   { name: 'Tamaño', width: 'w-[10%]', aling: 'text-center' },
+  { name: 'Duración', width: 'w-[10%]', aling: 'text-center' },
   { name: 'Última modificación', width: 'w-1/5', aling: 'text-center' }
 ];
 
 export const VideosFolder = () => {
+
+  const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+
+  const handleReturn = () => {
+    navigate(-1);
+  }
+
+
+
   return (
     <div className="p-8 h-full">
       <div className="flex gap-4 items-center">
-        <button className="bg-vt-blue text-white rounded-xl py-3 px-4">
+        <button
+          onClick={handleReturn}
+          className="bg-vt-blue text-white rounded-xl py-3 px-4">
           <i className="fas fa-arrow-left text-2xl"></i>
         </button>
 
-        <h1 className="text-2xl">Home / <span className="font-bold">BeMaster </span> </h1>
+        <h1 className="text-2xl">Home / <span className="font-bold">{id} </span> </h1>
       </div>
 
       <div className="mt-8">
-        <CheckBoxTable TableHeaders={ tableHeaders } TableRows={ dataRows } />
+        <CheckBoxTable TableHeaders={tableHeaders} TableRows={dataRows} />
       </div>
     </div>
   );
