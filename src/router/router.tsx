@@ -12,7 +12,7 @@ export const router = createBrowserRouter( [
         element: <VideoList />
       },
       {
-        path: ':id',
+        path: '/:id',
         element: <VideosFolder />
       },
       {
