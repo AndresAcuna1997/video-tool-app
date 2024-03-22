@@ -4,22 +4,21 @@ interface Props {
   to: string;
   icon: string;
   name: string;
-  isBold: boolean | undefined;
 }
 
-export const SidebarMenuItem = ( { icon, name, to, isBold }: Props ) => {
+export const SidebarMenuItem = ({ icon, name, to }: Props) => {
 
   return (
     <NavLink
-      to={ to }
-      className={ ( { isActive } ) => isActive
+      to={to}
+      className={({ isActive }) => isActive
         ? 'flex items-center mb-4 px-4 py-2 rounded-lg text-white bg-vt-blue transition duration-300 ease-in-out'
-        : 'flex items-center mb-4 px-4 py-2 rounded-lg text-black transition duration-300 ease-in-out' }
+        : 'flex items-center mb-4 px-4 py-2 rounded-lg text-black transition duration-300 ease-in-out'}
     >
-      <i className={ `${ icon } text-2xl mr-4 ml-4` }></i>
+      <i className={`${icon} text-2xl mr-4 ml-4`}></i>
       <div className="flex flex-col flex-grow">
-        <span className={ `${ isBold ? 'font-bold' : 'font-normal' } text-lg  ml-2` }>
-          { name }
+        <span className='font-normal text-lg  ml-2'>
+          {name}
         </span>
       </div>
     </NavLink >

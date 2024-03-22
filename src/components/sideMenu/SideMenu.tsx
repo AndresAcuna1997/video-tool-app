@@ -1,8 +1,10 @@
 import { ProgressBar, SidebarMenuItem } from '..';
+import { useLocation } from 'react-router-dom';
+
 import Logo from '../../assets/fav.svg';
 
-const sideMenuOptions = [
-  { to: "/dashboard", icon: "fa-solid fa-desktop", name: "Dashboard", isBold: true },
+const sideMenuOptionsBase = [
+  { to: "/dashboard", icon: "fa-solid fa-desktop", name: "Dashboard" },
   { to: "/videos", icon: "fa-regular fa-folder", name: "Videos" },
   { to: "/player", icon: "fa-regular fa-circle-play", name: "Player" },
   { to: "/analytics", icon: "fa-solid fa-chart-column", name: "Analytics" },
@@ -10,6 +12,12 @@ const sideMenuOptions = [
 ];
 
 export const SideMenu = () => {
+
+
+  const location = useLocation();
+  const isVideosRoute = location.pathname.includes('/videos/');
+
+
   return (
     <aside className="bg-white rounded-lg flex flex-col justify-between">
 
@@ -22,22 +30,28 @@ export const SideMenu = () => {
 
         <div className="pl-2 pr-6">
           {
-            sideMenuOptions.map((option, index) => (
+            sideMenuOptionsBase.map((option, index) => (
               <SidebarMenuItem
                 key={index}
                 to={option.to}
                 icon={option.icon}
                 name={option.name}
-                isBold={option.isBold}
               />
             ))
+          }
+          {
+            isVideosRoute && (
+              <SidebarMenuItem
+                to="/help"
+                icon="fa-regular fa-circle-question"
+                name="Ayuda"
+              />)
           }
         </div>
       </div>
 
       {/* Informacion del plan */}
-      {/* //TODO: FIX COLOR OF BAR (MUS BE VT-BLUE) */}
-      <div className="bg-slate-100 mx-3 mb-7 px-2 py-4 rounded-xl">
+      <div className="bg-vt-bg-gray mx-3 mb-7 px-2 py-4 rounded-xl">
         <div className="mb-6">
           <p className="font-semibold">Mi Plan - Plus</p>
           <small className="italic">El uso se renueva el 3-may-23</small>

@@ -8,7 +8,7 @@ export const ProgressBar = ({ progress }: Props) => {
             <div
                 style={{ width: `${progress}%` }}
                 className={`absolute left-0 bottom-0 h-2 rounded bg-vt-blue`}></div>
-            <div className="h-2 w-full rounded bg-blue-300 bg-opacity-20"></div>
+            <div className="h-2 w-full rounded bg-vt-bg-progress-bar bg-opacity-20"></div>
         </div>
     )
 }

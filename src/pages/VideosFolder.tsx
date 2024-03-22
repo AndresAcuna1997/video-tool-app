@@ -98,7 +98,7 @@ export const VideosFolder = () => {
       <div className="flex gap-4 items-center">
         <button
           onClick={handleReturn}
-          className="bg-vt-blue text-white rounded-xl py-3 px-4">
+          className="bg-vt-blue text-white rounded-lg py-3 px-4">
           <i className="fas fa-arrow-left text-2xl"></i>
         </button>
 
