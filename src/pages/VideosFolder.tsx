@@ -5,71 +5,71 @@ import { TableHeader, TableRow } from '../interfaces';
 const dataRows: TableRow[] = [
   {
     name: 'Afiliado Master',
-    videos: 8,
     size: '7.3 GB',
+    duration: '1:30:00',
     lastModified: '30/may/2023',
     icon: 'fa-regular fa-circle-play'
   },
   {
     name: 'BeMaster',
-    videos: 21,
     size: '1.4 GB',
+    duration: '1:30:00',
     lastModified: '22/jun/2022',
     icon: 'fa-regular fa-circle-play'
   },
   {
     name: 'Comizzion',
-    videos: 10,
     size: '284 MB',
+    duration: '1:30:00',
     lastModified: '11/sep/2021',
     icon: 'fa-regular fa-circle-play'
   },
   {
     name: 'Creador de contenido',
-    videos: 2,
     size: '4.3 GB',
+    duration: '1:30:00',
     lastModified: '21/jun/2023',
     icon: 'fa-regular fa-circle-play'
   },
   {
     name: 'Exportados Wil',
-    videos: 14,
     size: '500 MB',
+    duration: '1:30:00',
     lastModified: '5/abr/2023',
     icon: 'fa-regular fa-circle-play'
   },
   {
     name: 'Afiliado Master',
-    videos: 8,
     size: '7.3 GB',
+    duration: '1:30:00',
     lastModified: '30/may/2023',
     icon: 'fa-regular fa-circle-play'
   },
   {
     name: 'BeMaster',
-    videos: 21,
     size: '1.4 GB',
+    duration: '1:30:00',
     lastModified: '22/jun/2022',
     icon: 'fa-regular fa-circle-play'
   },
   {
     name: 'Comizzion',
-    videos: 10,
     size: '284 MB',
+    duration: '1:30:00',
     lastModified: '11/sep/2021',
     icon: 'fa-regular fa-circle-play'
   },
   {
     name: 'Creador de contenido',
-    videos: 2,
     size: '4.3 GB',
+    duration: '1:30:00',
     lastModified: '21/jun/2023',
     icon: 'fa-regular fa-circle-play'
   },
   {
     name: 'Exportados Wil',
-    videos: 14,
     size: '500 MB',
+    duration: '1:30:00',
     lastModified: '5/abr/2023',
     icon: 'fa-regular fa-circle-play'
   }

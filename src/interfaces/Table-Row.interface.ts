@@ -1,7 +1,8 @@
 export interface TableRow {
   name: string;
-  videos: number;
   size: string;
-  lastModified: string;
+  videos?: number;
+  duration?: string;
   icon: string;
+  lastModified: string;
 }

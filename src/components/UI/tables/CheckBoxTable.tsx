@@ -36,8 +36,19 @@ export const CheckBoxTable = ({ TableHeaders, TableRows, handleNameClick }: Prop
                 <i className={`mr-4 text-vt-blue text-xl ${row.icon}`}></i>
                 {row.name}
               </td>
-              <td className="text-center">{row.videos}</td>
-              <td className="text-center">{row.size}</td>
+              {
+                row.videos &&
+                <td className="text-center">{row.videos}</td>
+              }
+              {
+                row.size &&
+                <td className="text-center">{row.size}</td>
+              
+              }
+              {
+                row.duration &&
+                <td className="text-center">{row.duration}</td>
+              }
               <td className="text-center">{row.lastModified}</td>
             </tr>
           ))

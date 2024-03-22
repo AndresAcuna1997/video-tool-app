@@ -16,6 +16,10 @@ export const router = createBrowserRouter([
         element: <VideosFolder />
       },
       {
+        path: '/',
+        element: <Navigate to="/videos" />
+      },
+      {
         path: '*',
         element: <Navigate to="/videos" />
       },
